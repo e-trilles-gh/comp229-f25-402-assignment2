@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 
+// uses the routes
 import homeRoutes from './routes/homeRoutes.js';
 
 const app = express();
