@@ -12,4 +12,4 @@ app.use('/', homeRoutes);
 
 app.listen(3000);
 
-console.log('Server running at http://localhost:3000/');
+console.log('Established connection. Server running at http://localhost:3000/');
