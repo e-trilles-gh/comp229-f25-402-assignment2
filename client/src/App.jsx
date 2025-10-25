@@ -1,5 +1,5 @@
 import './App.css';
-import MainRouter from './MainRouter';
+import MainRouter from './MainRouter.jsx';
 
 function App() {
   return (
