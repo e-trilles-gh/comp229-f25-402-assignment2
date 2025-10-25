@@ -10,4 +10,4 @@ function goodbyeWorld(req, res, next) {
     res.end('<h1>Goodbye World</h1>');
 }
 
-export { helloWorld, goodbyeWorld };
+export { helloWorld, goodbyeWorld};
