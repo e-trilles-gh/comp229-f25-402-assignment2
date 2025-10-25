@@ -3,22 +3,22 @@ import morgan from 'morgan';
 import mongoose from "mongoose";
 import dotenv from 'dotenv/config';
 
-// uses the routes
-import homeRoutes from './server/routes/homeRoutes.js';
-import projectRoutes from './server/routes/project.js';
-
-const app = express();
-
 mongoose.connect(process.env.MONGODB_URI);
-
 const connection = mongoose.connection;
 connection.on('error', console.error.bind(console, "MongoDB connection error: "));
 connection.once('open', () => { console.log('Connected to MongoDB'); });
 
 
-app.use(morgan('dev'));
+// uses the routes
+import projectRoutes from './server/routes/project.js';
 
-app.use('/', homeRoutes);
+const app = express();
+
+
+
+app.use(morgan('dev'));
+app.use(express.json());
+
 app.use('/projects', projectRoutes);
 
 app.listen(3000);
