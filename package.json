@@ -1,5 +1,5 @@
 {
-  "name": "MyPortfolio",
+  "name": "comp229-f25-402-week2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "server"
   ],
   "scripts": {
+    "dev": "npm --prefix server run dev",
     "start": "npm-run-all --parallel start:client start:server",
     "start:server": "npm --prefix server run dev",
     "start:client": "npm --prefix client run dev"
