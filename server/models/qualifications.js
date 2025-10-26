@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 const qualificationSchema = new mongoose.Schema({
-    title: string,
-    firstname: string,
-    lastname: string,
-    email:	string,
+    title: String,
+    firstname: String,
+    lastname: String,
+    email:	String,
     completion: Date,
-    description: string
+    description: String
 });
 
 export default mongoose.model('Qualification', qualificationSchema);
