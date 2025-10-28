@@ -16,9 +16,6 @@ import contactRoutes from './server/routes/contact.js';
 import qualificationRoutes from './server/routes/qualification.js';
 
 const app = express();
-
-
-
 app.use(morgan('dev'));
 app.use(express.json());
 

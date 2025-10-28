@@ -10,6 +10,8 @@
     "dev": "node ../server.js"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "brcypt": "^1.0.1",
     "express": "^5.1.0",
     "mongoose": "^8.19.2",
     "morgan": "^1.10.1"

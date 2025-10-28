@@ -73,3 +73,29 @@ export const deleteUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     } 
 }
+
+// Login user
+export const loginUser = async (req, res) => {
+    try {
+        // destructuring from body
+        const {email, password} = req.body;
+        const user = await UserModel.findOne({email})
+
+        if (!user) {
+            // 404 HTTP status cond for not found
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const isPasswordValid = await user.comparePassword(password);
+
+        if (!isPasswordValid) {
+            // 401 HTTP status code for unauthorized
+            return res.status(401).json({ message: 'Invalid password' });
+        }
+
+        return res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+        // 500 HTTP status code for server error
+        res.status(500).json({ message: error.message });
+    }
+}
