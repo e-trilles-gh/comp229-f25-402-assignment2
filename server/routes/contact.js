@@ -11,10 +11,10 @@ import {
 const router = express.Router();
 
 // HTTP verbs for RESTful APIs GET, POST, PUT, DELETE
-router.get('/', getAllContacts);
-router.get('/:id', getContactById);
-router.post('/', createContact);
-router.put('/:id', updateContact);
-router.delete('/:id', deleteContact);
+router.get('/', authMiddleware, getAllContacts);
+router.get('/:id', authMiddleware, getContactById);
+router.post('/', authMiddleware,createContact);
+router.put('/:id', authMiddleware, updateContact);
+router.delete('/:id', authMiddleware, deleteContact);
 
 export default router;

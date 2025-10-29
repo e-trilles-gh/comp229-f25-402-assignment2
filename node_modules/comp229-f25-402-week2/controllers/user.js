@@ -1,5 +1,5 @@
 import UserModel from '../models/users.js';
-
+import generateToken from '../utils/jwts.js';
 
 // Get All Users = Same as db.users.find()
 export const getAllUsers = async (req, res) => {
@@ -32,8 +32,11 @@ export const createUser = async (req, res) => {
     try {
         const newUser = new UserModel(req.body);
         const savedUser = await newUser.save();
+
+        const token = generateToken(savedUser);
+
         // 201 HTTP status code for created
-        res.status(201).json(savedUser);
+        res.status(201).json({ message: 'User Created successfully', user: savedUser, token });
     } catch (error) {
         // 500 HTTP status code for server error
         res.status(500).json({ message: error.message });
@@ -93,7 +96,9 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Invalid password' });
         }
 
-        return res.status(200).json({ message: 'Login successful', user });
+        const token = generateToken(user);
+        
+        return res.status(200).json({ message: 'Login successful', user, token });
     } catch (error) {
         // 500 HTTP status code for server error
         res.status(500).json({ message: error.message });
