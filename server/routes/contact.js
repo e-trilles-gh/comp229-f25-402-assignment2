@@ -6,6 +6,7 @@ import {
     deleteContact,
     createContact
 } from '../controllers/contact.js';
+import authMiddleware from '../middlewares/auth.js';
 
 // Router /projects
 const router = express.Router();

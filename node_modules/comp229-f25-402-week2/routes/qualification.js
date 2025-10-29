@@ -6,6 +6,7 @@ import {
     deleteQualification,
     createQualification
 } from '../controllers/qualification.js';
+import authMiddleware from '../middlewares/auth.js';
 
 // Router /qualifications
 const router = express.Router();

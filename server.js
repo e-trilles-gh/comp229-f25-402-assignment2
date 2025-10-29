@@ -1,7 +1,7 @@
-import express from 'express';
-import morgan from 'morgan';
+import express from "express";
+import morgan from "morgan";
 import mongoose from "mongoose";
-import dotenv from 'dotenv/config';
+import dotenv from "dotenv/config";
 
 mongoose.connect(process.env.MONGODB_URI);
 const connection = mongoose.connection;

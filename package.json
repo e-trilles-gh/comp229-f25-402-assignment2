@@ -2,15 +2,14 @@
   "name": "comp229-f25-402-week2",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "workspaces": [
     "client",
     "server"
   ],
   "scripts": {
-    "dev": "npm-run-all --parallel start:client start:server",
+    "dev": "npm --prefix ./client run dev",
     "start:server": "npm --prefix ./server run dev",
-    "start:client": "npm --prefix ./client run dev"
+    "start:client": "npm --prefix ./client run startvite"
   },
   "keywords": [],
   "author": "",

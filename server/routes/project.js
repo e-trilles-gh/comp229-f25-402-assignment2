@@ -6,6 +6,7 @@ import {
     deleteProject,
     createProject
 } from '../controllers/project.js';
+import authMiddleware from '../middlewares/auth.js';
 
 // Router /projects
 const router = express.Router();
