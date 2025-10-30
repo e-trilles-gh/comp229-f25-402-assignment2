@@ -19,7 +19,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.get('/api/', (req, res) => { res.status(201).json({ message: "Welcome to My Portfolio application." });});
+app.get('/', (req, res) => { res.status(201).json({ message: "Welcome to My Portfolio application." });});
 app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contacts', contactRoutes);
