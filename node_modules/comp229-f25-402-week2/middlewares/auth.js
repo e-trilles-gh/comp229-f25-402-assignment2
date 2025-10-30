@@ -18,4 +18,5 @@ const authMiddleware = (req, res, next) => {
     
 }
 
+// Signout user
 export default authMiddleware;

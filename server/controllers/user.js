@@ -120,3 +120,21 @@ export const loginUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 }
+
+// Signout user
+export const signoutUser = async (req, res) => {
+    try {
+
+        const user = await UserModel.findById(req.params.id)
+
+        if (!user) {
+            // 404 HTTP status cond for not found
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.clearCookie("t")
+        return res.status(200).json({ message: "User signed out." })
+    } catch (error) {
+        // 500 HTTP status code for server error
+        res.status(500).json({ message: error.message });
+    }
+}
