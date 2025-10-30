@@ -73,3 +73,19 @@ export const deleteContact = async (req, res) => {
         res.status(500).json({ message: error.message });
     } 
 }
+
+// Delete all contacts = same as db.contacts.drop()
+export const deleteAllContacts = async (req, res) => {
+    try {
+        const deletedContacts = await ContactModel.deleteMany({});
+
+        if (deletedContacts.deletedCount === 0) {
+            // 404 HTTP status code
+            return res.status(404).json({ message: 'Contacts not found'});
+        } 
+        res.status(200).json({ message: 'Contacts deleted successfully' });
+    }  catch (error) {
+        // 500 HTTP status code for server error
+        res.status(500).json({ message: error.message });
+    } 
+}

@@ -4,6 +4,7 @@ import {
     getProjectById,
     updateProject,
     deleteProject,
+    deleteAllProjects,
     createProject
 } from '../controllers/project.js';
 import authMiddleware from '../middlewares/auth.js';
@@ -17,5 +18,6 @@ router.get('/:id', authMiddleware, getProjectById);
 router.post('/', authMiddleware, createProject);
 router.put('/:id', authMiddleware, updateProject);
 router.delete('/:id', authMiddleware, deleteProject);
+router.delete('/', authMiddleware, deleteAllProjects);
 
 export default router;

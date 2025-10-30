@@ -73,3 +73,19 @@ export const deleteProject = async (req, res) => {
         res.status(500).json({ message: error.message });
     } 
 }
+
+// Delete all projects = same as db.projects.drop()
+export const deleteAllProjects = async (req, res) => {
+    try {
+        const deletedProjects = await ProjectModel.deleteMany({});
+
+        if (deletedProjects.deletedCount === 0) {
+            // 404 HTTP status code
+            return res.status(404).json({ message: 'Projects not found'});
+        } 
+        res.status(200).json({ message: 'Projects deleted successfully' });
+    }  catch (error) {
+        // 500 HTTP status code for server error
+        res.status(500).json({ message: error.message });
+    } 
+}

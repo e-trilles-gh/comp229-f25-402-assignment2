@@ -73,3 +73,19 @@ export const deleteQualification = async (req, res) => {
         res.status(500).json({ message: error.message });
     } 
 }
+
+// Delete all qualifiations = same as db.qualifiations.drop()
+export const deleteAllQualifiations = async (req, res) => {
+    try {
+        const deletedQualifications = await QualificationModel.deleteMany({});
+
+        if (deletedQualifications.deletedCount === 0) {
+            // 404 HTTP status code
+            return res.status(404).json({ message: 'Qualifications not found'});
+        } 
+        res.status(200).json({ message: 'Qualifications deleted successfully' });
+    }  catch (error) {
+        // 500 HTTP status code for server error
+        res.status(500).json({ message: error.message });
+    } 
+}

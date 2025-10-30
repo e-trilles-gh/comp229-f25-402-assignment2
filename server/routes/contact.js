@@ -4,6 +4,7 @@ import {
     getContactById,
     updateContact,
     deleteContact,
+    deleteAllContacts,
     createContact
 } from '../controllers/contact.js';
 import authMiddleware from '../middlewares/auth.js';
@@ -17,5 +18,6 @@ router.get('/:id', authMiddleware, getContactById);
 router.post('/', authMiddleware,createContact);
 router.put('/:id', authMiddleware, updateContact);
 router.delete('/:id', authMiddleware, deleteContact);
+router.delete('/', authMiddleware, deleteAllContacts);
 
 export default router;
